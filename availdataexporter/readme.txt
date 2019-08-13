@@ -47,3 +47,21 @@ productdata - The data used to filter and display product data.
 categorydata - The data used for category filters.
 categorynamesdata - Alternative category names.
 validdata - The data used for valid products filters.
+
+*Third Party Applications*
+Third party applications used are described here.
+
+Licenses:
+- Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
+- GPL (http://www.gnu.org/licenses/gpl.html)
+- LGPL (http://www.gnu.org/copyleft/lesser.html)
+
+Application		License
+Commons Codec 1.3	Apache 2.0
+Commons HTTP Client 3.1	Apache 2.0
+Commons Logging 1.1.1	Apache 2.0
+jTDS			LGPL
+Log4J 1.2.15		Apache 2.0
+MySQL Connector/J 5.1.6	GPL
+MS SQL JDBC Driver 1.1	Proprietary License. Registered for redistribution rights.
+sunjce_provider.jar	GPL
