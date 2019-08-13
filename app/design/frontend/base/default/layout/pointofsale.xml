@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Avail - Point of Sale
+ *
+ * @category  Avail
+ * @package   Avail_Pointofsale
+ * @copyright 2012 Avail
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="pointofsale/head" name="pointofsale_head" as="pointofsale_head">
+                <action method="addJs"><script>emark-min.js</script></action>
+            </block>
+            <block type="page/html_head" name="pointofsale_cookie" after="head">
+                <action method="addJs"><script>avail/cookie.js</script></action>
+            </block>
+            <block type="pointofsale/data" name="pointofsale_data" as="pointofsale_data" template="pointofsale/data.phtml" />
+        </reference>
+    </default>
+
+    <catalog_product_view>
+        <reference name="right">
+            <block type="pointofsale/data_banner_product" name="pointofsale_banner_product" before="-" as="pointofsale_banner_product" />
+        </reference>
+    </catalog_product_view>
+
+    <checkout_cart_index>
+        <reference name="content">
+            <block type="pointofsale/data_banner_cart" name="pointofsale_banner_cart" before="-" as="pointofsale_banner_cart" />
+            <!--<block type="pointofsale/data_banner_precart" name="pointofsale_banner_precart" before="-" as="pointofsale_banner_precart" />-->
+        </reference>
+    </checkout_cart_index>
+
+    <catalogsearch_result_index>
+        <reference name="content">
+            <block type="pointofsale/data_banner_search" name="pointofsale_banner_search" before="-" as="pointofsale_banner_search" />
+        </reference>
+    </catalogsearch_result_index>
+
+    <catalog_category_view>
+        <reference name="content">
+            <block type="pointofsale/data_banner_category" name="pointofsale_banner_category" before="-" as="pointofsale_banner_category" />
+        </reference>
+    </catalog_category_view>
+</layout>

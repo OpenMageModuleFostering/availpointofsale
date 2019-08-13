@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Avail - Point of Sale
+ *
+ * @category  Avail
+ * @package   Avail_Pointofsale
+ * @copyright 2013 Avail
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Avail_Pointofsale>
+            <version>0.0.1</version>
+        </Avail_Pointofsale>
+    </modules>
+    <global>
+        <blocks>
+            <pointofsale>
+                <class>Avail_Pointofsale_Block</class>
+            </pointofsale>
+        </blocks>
+        <helpers>
+            <pointofsale>
+                <class>Avail_Pointofsale_Helper</class>
+            </pointofsale>
+        </helpers>
+        <models>
+            <pointofsale>
+                <class>Avail_Pointofsale_Model</class>
+            </pointofsale>
+        </models>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <pointofsale>
+                    <file>pointofsale.xml</file>
+                </pointofsale>
+            </updates>
+        </layout>
+        <routers>
+            <pointofsale>
+                <use>standard</use>
+                <args>
+                    <module>Avail_Pointofsale</module>
+                    <frontName>pointofsale</frontName>
+                </args>
+            </pointofsale>
+        </routers>
+        <events>
+            <!-- logAddedToCart -->
+            <checkout_cart_add_product_complete>
+                <observers>                    
+                    <log_added_to_cart>
+                        <class>pointofsale/observer</class>
+                        <method>logAddedToCart</method>
+                    </log_added_to_cart>
+                </observers>
+            </checkout_cart_add_product_complete>
+            
+            <!-- logPurchase -->
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <pointofsale_log_purchase>
+                        <class>pointofsale/observer</class>
+                        <method>logPurchase</method>
+                    </pointofsale_log_purchase>
+                </observers>
+            </checkout_onepage_controller_success_action>
+            
+            <!-- logRemovedFromCart -->
+            <controller_action_postdispatch_checkout_cart_delete>
+                <observers>
+                    <log_removed_from_cart>
+                        <class>pointofsale/observer</class>
+                        <method>logRemovedFromCart</method>
+                    </log_removed_from_cart>
+                </observers>
+            </controller_action_postdispatch_checkout_cart_delete>
+            
+            <!-- saveSearch -->
+            <controller_action_predispatch_catalogsearch_result_index>
+                <observers>
+                    <save_search_phrase_js_browser>
+                        <class>pointofsale/observer</class>
+                        <method>saveSearchPhrase</method>
+                    </save_search_phrase_js_browser>
+                </observers>
+            </controller_action_predispatch_catalogsearch_result_index>
+            <checkout_cart_add_product_complete>
+                <observers>
+                    <save_search_json_rpc>
+                        <class>pointofsale/observer</class>
+                        <method>saveSearch</method>
+                    </save_search_json_rpc>
+                </observers>
+            </checkout_cart_add_product_complete>
+        </events>
+    </frontend>
+    <default>
+        <pointofsale>
+            <interface>
+                <url>http://service.avail.net/2009-02-13/dynamic/</url>
+                <js_load>0</js_load>
+                <debug>0</debug>
+            </interface>
+            <template>
+                <default>GETPREDEXT_DEFAULT</default>
+                <search>SearchPage</search>
+                <product>ProductPage</product>
+                <category>CategoryPage</category>
+                <precart>AddToBasketPage</precart>
+                <cart>BasketPage</cart>
+            </template>
+        </pointofsale>
+        <generatefiles>
+            <conf>
+                <filename>upload.conf</filename>
+            </conf>
+        </generatefiles>
+    </default>
+</config>

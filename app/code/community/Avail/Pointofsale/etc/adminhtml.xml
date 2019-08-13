@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Avail - Point of Sale
+ *
+ * @category  Avail
+ * @package   Avail_Pointofsale
+ * @copyright 2013 Avail
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Point of Sale</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <pointofsale translate="title">
+                                        <title>Point of Sale</title>
+                                        <sort_order>100</sort_order>
+                                    </pointofsale>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

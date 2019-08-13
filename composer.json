@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/AvailPointofSale",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL-3.0)",
+    "homepage": "",
+    "description": "Avail Point-of-Sale will help you generate and display recommended products on different pages of your website.",
+    "authors": [
+    {
+        "name": "Smile",
+        "email": "solution.magento@smile.fr"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
